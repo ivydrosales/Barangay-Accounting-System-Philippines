@@ -337,4 +337,44 @@ begin
   perform pg_temp.assert(not exists (select 1 from raaf where id = v_r.id), 'a draft RAAF can be deleted');
 end $$;
 
+-- ---------------------------------------------------------------------------
+-- Parallel run (Phase 1 gate): paper Cashbook totals beside the system's
+-- ---------------------------------------------------------------------------
+
+do $$
+declare
+  v_b   uuid := '20000000-0000-0000-0000-000000000001';
+  v_row parallel_run_month;
+begin
+  perform pg_temp.assert((select count(*) = 10 and bool_and(paper is null) from parallel_run_comparison(v_b, 2026, 3)),
+    'before any paper figure is typed in, the report shows the ten system figures alone');
+  perform pg_temp.assert((select system = 9500 from parallel_run_comparison(v_b, 2026, 3) where line_no = 7), 'the system shows 9,500 of checks issued in March');
+  perform pg_temp.assert((select system = -9500 from parallel_run_comparison(v_b, 2026, 3) where line_no = 8), 'and a Cash in Bank ending balance of -9,500 (no opening balance yet)');
+  perform pg_temp.assert((select system = 1 from parallel_run_comparison(v_b, 2026, 3) where line_no = 10), 'and one check');
+
+  insert into parallel_run_month (lgu_id, barangay_id, period_year, period_month,
+    paper_clt_beginning, paper_clt_collection, paper_clt_deposit, paper_clt_ending,
+    paper_cib_beginning, paper_cib_deposit, paper_cib_check, paper_cib_ending, paper_or_count, paper_check_count)
+  values ('10000000-0000-0000-0000-000000000001', v_b, 2026, 3, 0, 0, 0, 0, 50000, 0, 9500, 40500, 0, 1)
+  returning * into v_row;
+  perform pg_temp.assert((select difference = 0 from parallel_run_comparison(v_b, 2026, 3) where line_no = 7), 'checks issued agree with paper');
+  perform pg_temp.assert((select difference = -50000 from parallel_run_comparison(v_b, 2026, 3) where line_no = 5), 'the missing opening balance shows as a difference');
+  perform pg_temp.assert((select count(*) = 2 from parallel_run_comparison(v_b, 2026, 3) where difference <> 0), 'only the two Cash in Bank balances differ');
+
+  perform pg_temp.expect_error(format($q$ update parallel_run_month set signed_off_at = now() where id = %L $q$, v_row.id), 'sign-off cannot be typed in by hand');
+  perform pg_temp.expect_error(format('select sign_off_parallel_run(%L, null)', v_row.id), 'the Treasurer cannot sign off the parallel run');
+  perform set_config('test.prm', v_row.id::text, true);
+end $$;
+
+select pg_temp.login('00000000-0000-0000-0000-000000000002');
+do $$
+declare v_row parallel_run_month;
+begin
+  perform pg_temp.expect_error(format('select sign_off_parallel_run(%L, null)', current_setting('test.prm')), 'differences must be explained before sign-off');
+  v_row := sign_off_parallel_run(current_setting('test.prm')::uuid, 'Opening balance of 50,000 not yet loaded; flows agree.');
+  perform pg_temp.assert(v_row.signed_off_at is not null and v_row.signed_off_by = '00000000-0000-0000-0000-000000000002', 'the Accountant signs off the month with remarks');
+  perform pg_temp.expect_error(format($q$ update parallel_run_month set paper_cib_check = 1 where id = %L $q$, v_row.id), 'signed-off figures are final');
+  perform pg_temp.expect_error(format($q$ delete from parallel_run_month where id = %L $q$, v_row.id), 'a signed-off month cannot be deleted');
+end $$;
+
 rollback;

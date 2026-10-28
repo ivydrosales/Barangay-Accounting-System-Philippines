@@ -22,6 +22,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
           <Link href="/disbursements/transmittal">Transmittal</Link>
           <Link href="/forms">Forms</Link>
           <Link href="/forms/raaf">RAAF</Link>
+          <Link href="/parallel-run">Parallel run</Link>
         </div>
         <div className="right">
           {ctx.barangays.length > 1 ? (

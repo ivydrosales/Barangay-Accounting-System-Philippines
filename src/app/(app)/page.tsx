@@ -66,6 +66,14 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ o
       </section>
 
       <section className="card">
+        <h2>Parallel run</h2>
+        <p>
+          During the pilot, keep paper and system side by side for a month and compare the totals on the{" "}
+          <Link href="/parallel-run">parallel-run page</Link>, which also holds the daily checklist.
+        </p>
+      </section>
+
+      <section className="card">
         <h2>Barangays and funds</h2>
         {barangays.length === 0 ? (
           <p>No barangays are visible to you yet.</p>
