@@ -1,0 +1,41 @@
+# Applies new migrations and the chart-of-accounts seed to the hosted Supabase
+# project whenever main changes. Needs three repository secrets
+# (GitHub > Settings > Secrets and variables > Actions > New repository secret):
+#   SUPABASE_ACCESS_TOKEN  - https://supabase.com/dashboard/account/tokens
+#   SUPABASE_PROJECT_ID    - the project ref (the part before .supabase.co in the project URL)
+#   SUPABASE_DB_PASSWORD   - the database password chosen when the project was created
+# Until the secrets exist the workflow does nothing. See docs/SETUP.md.
+name: Apply database migrations
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "supabase/migrations/**"
+      - "supabase/seed.sql"
+  workflow_dispatch:
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+    steps:
+      - name: Are the Supabase secrets set?
+        id: check
+        run: echo "ready=${{ secrets.SUPABASE_PROJECT_ID != '' && secrets.SUPABASE_ACCESS_TOKEN != '' && secrets.SUPABASE_DB_PASSWORD != '' }}" >> "$GITHUB_OUTPUT"
+      - if: steps.check.outputs.ready != 'true'
+        run: echo "Supabase secrets are not set; skipping. See docs/SETUP.md."
+      - if: steps.check.outputs.ready == 'true'
+        uses: actions/checkout@v4
+      - if: steps.check.outputs.ready == 'true'
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+      - if: steps.check.outputs.ready == 'true'
+        run: supabase link --project-ref ${{ secrets.SUPABASE_PROJECT_ID }}
+      # --include-seed re-applies supabase/seed.sql, which is idempotent
+      # (insert ... on conflict update), so the chart stays in step with the CSV.
+      - if: steps.check.outputs.ready == 'true'
+        run: supabase db push --include-seed

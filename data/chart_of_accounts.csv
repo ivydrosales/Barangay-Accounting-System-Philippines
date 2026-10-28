@@ -1,0 +1,281 @@
+﻿account_code,account_title,class,group,sub_group,normal_balance,contra_of,statement_line,subsidiary_ledger
+1-01-01-010,Cash – In Local Treasury,Asset,Cash,Cash on Hand,Dr,,Cash and Cash Equivalents,
+1-01-01-020,Petty Cash,Asset,Cash,Cash on Hand,Dr,,Cash and Cash Equivalents,per custodian
+1-01-02-010,"Cash in Bank – Local Currency, Current Account",Asset,Cash,Cash in Bank,Dr,,Cash and Cash Equivalents,per bank account
+1-02-01-010,Investment in Time Deposits,Asset,Investments,Investments,Dr,,Investments,per placement
+1-03-01-010,Accounts Receivable,Asset,Receivables,Receivable Accounts,Dr,,Receivables,per debtor
+1-03-01-011,Allowance for Impairment – Accounts Receivable,Asset,Receivables,Receivable Accounts,Cr,1-03-01-010,Receivables,
+1-03-02-010,Due from Local Government Units,Asset,Receivables,Inter-agency Receivables,Dr,,Receivables,per LGU
+1-03-03-010,Advances for Payroll,Asset,Receivables,Advances,Dr,,Receivables,per disbursing officer
+1-03-03-020,Advances to Officers and Employees,Asset,Receivables,Advances,Dr,,Receivables,per officer/employee
+1-03-04-010,Receivables – Disallowances/Charges,Asset,Receivables,Other Receivables,Dr,,Receivables,per person liable
+1-03-04-020,Due from Officers and Employees,Asset,Receivables,Other Receivables,Dr,,Receivables,per officer/employee
+1-03-04-030,Due from NGO/POs,Asset,Receivables,Other Receivables,Dr,,Receivables,per NGO/PO
+1-03-04-990,Other Receivables,Asset,Receivables,Other Receivables,Dr,,Receivables,per debtor
+1-03-04-991,Allowance for Impairment – Other Receivables,Asset,Receivables,Other Receivables,Cr,1-03-04-990,Receivables,
+1-04-01-010,Merchandise Inventory,Asset,Inventories,Inventory Held for Sale,Dr,,Inventories,per stock item
+1-04-02-010,Welfare Goods for Distribution,Asset,Inventories,Inventory Held for Distribution,Dr,,Inventories,per stock item
+1-04-02-020,Drugs and Medicines for Distribution,Asset,Inventories,Inventory Held for Distribution,Dr,,Inventories,per stock item
+1-04-02-990,Other Supplies and Materials for Distribution,Asset,Inventories,Inventory Held for Distribution,Dr,,Inventories,per stock item
+1-04-03-010,Office Supplies Inventory,Asset,Inventories,Inventory Held for Consumption,Dr,,Inventories,per stock item
+1-04-03-020,"Accountable Forms, Plates and Stickers Inventory",Asset,Inventories,Inventory Held for Consumption,Dr,,Inventories,per form type
+1-04-03-030,Construction Materials Inventory,Asset,Inventories,Inventory Held for Consumption,Dr,,Inventories,per stock item
+1-04-03-990,Other Supplies and Materials Inventory,Asset,Inventories,Inventory Held for Consumption,Dr,,Inventories,per stock item
+1-05-01-010,Advances to Contractors,Asset,Prepayments,Prepayments,Dr,,Prepayments and Deferred Charges,per contractor
+1-05-01-990,Other Prepayments,Asset,Prepayments,Prepayments,Dr,,Prepayments and Deferred Charges,per item
+1-06-01-010,Investment Property – Land,Asset,Investment Property,Investment Property,Dr,,Investment Property,per property
+1-06-01-012,Accumulated Impairment Losses – Investment Property – Land,Asset,Investment Property,Investment Property,Cr,1-06-01-010,Investment Property,
+1-06-01-020,Investment Property – Buildings,Asset,Investment Property,Investment Property,Dr,,Investment Property,per property
+1-06-01-021,Accumulated Depreciation – Investment Property – Buildings,Asset,Investment Property,Investment Property,Cr,1-06-01-020,Investment Property,
+1-06-01-022,Accumulated Impairment Losses – Investment Property – Buildings,Asset,Investment Property,Investment Property,Cr,1-06-01-020,Investment Property,
+1-07-01-010,Land,Asset,"Property, Plant and Equipment",Land,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-01-012,Accumulated Impairment Losses – Land,Asset,"Property, Plant and Equipment",Land,Cr,1-07-01-010,"Property, Plant and Equipment",
+1-07-02-990,Other Land Improvements,Asset,"Property, Plant and Equipment",Land Improvements,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-02-991,Accumulated Depreciation – Other Land Improvements,Asset,"Property, Plant and Equipment",Land Improvements,Cr,1-07-02-990,"Property, Plant and Equipment",
+1-07-02-992,Accumulated Impairment Losses – Other Land Improvements,Asset,"Property, Plant and Equipment",Land Improvements,Cr,1-07-02-990,"Property, Plant and Equipment",
+1-07-03-010,Road Networks,Asset,"Property, Plant and Equipment",Infrastructure Assets,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-03-011,Accumulated Depreciation – Road Networks,Asset,"Property, Plant and Equipment",Infrastructure Assets,Cr,1-07-03-010,"Property, Plant and Equipment",
+1-07-03-012,Accumulated Impairment Losses – Road Networks,Asset,"Property, Plant and Equipment",Infrastructure Assets,Cr,1-07-03-010,"Property, Plant and Equipment",
+1-07-03-020,Flood Control Systems,Asset,"Property, Plant and Equipment",Infrastructure Assets,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-03-021,Accumulated Depreciation – Flood Control Systems,Asset,"Property, Plant and Equipment",Infrastructure Assets,Cr,1-07-03-020,"Property, Plant and Equipment",
+1-07-03-022,Accumulated Impairment Losses – Flood Control Systems,Asset,"Property, Plant and Equipment",Infrastructure Assets,Cr,1-07-03-020,"Property, Plant and Equipment",
+1-07-03-030,Sewer Systems,Asset,"Property, Plant and Equipment",Infrastructure Assets,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-03-031,Accumulated Depreciation – Sewer Systems,Asset,"Property, Plant and Equipment",Infrastructure Assets,Cr,1-07-03-030,"Property, Plant and Equipment",
+1-07-03-032,Accumulated Impairment Losses – Sewer Systems,Asset,"Property, Plant and Equipment",Infrastructure Assets,Cr,1-07-03-030,"Property, Plant and Equipment",
+1-07-03-040,Water Supply Systems,Asset,"Property, Plant and Equipment",Infrastructure Assets,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-03-041,Accumulated Depreciation – Water Supply Systems,Asset,"Property, Plant and Equipment",Infrastructure Assets,Cr,1-07-03-040,"Property, Plant and Equipment",
+1-07-03-042,Accumulated Impairment Losses – Water Supply Systems,Asset,"Property, Plant and Equipment",Infrastructure Assets,Cr,1-07-03-040,"Property, Plant and Equipment",
+1-07-03-050,"Parks, Plazas and Monuments",Asset,"Property, Plant and Equipment",Infrastructure Assets,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-03-051,"Accumulated Depreciation – Parks, Plazas and Monuments",Asset,"Property, Plant and Equipment",Infrastructure Assets,Cr,1-07-03-050,"Property, Plant and Equipment",
+1-07-03-052,"Accumulated Impairment Losses – Parks, Plazas and Monuments",Asset,"Property, Plant and Equipment",Infrastructure Assets,Cr,1-07-03-050,"Property, Plant and Equipment",
+1-07-03-990,Other Infrastructure Assets,Asset,"Property, Plant and Equipment",Infrastructure Assets,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-03-991,Accumulated Depreciation – Other Infrastructure Assets,Asset,"Property, Plant and Equipment",Infrastructure Assets,Cr,1-07-03-990,"Property, Plant and Equipment",
+1-07-03-992,Accumulated Impairment Losses – Other Infrastructure Assets,Asset,"Property, Plant and Equipment",Infrastructure Assets,Cr,1-07-03-990,"Property, Plant and Equipment",
+1-07-04-010,Buildings,Asset,"Property, Plant and Equipment",Buildings and Other Structures,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-04-011,Accumulated Depreciation – Buildings,Asset,"Property, Plant and Equipment",Buildings and Other Structures,Cr,1-07-04-010,"Property, Plant and Equipment",
+1-07-04-012,Accumulated Impairment Losses – Buildings,Asset,"Property, Plant and Equipment",Buildings and Other Structures,Cr,1-07-04-010,"Property, Plant and Equipment",
+1-07-04-020,School Buildings,Asset,"Property, Plant and Equipment",Buildings and Other Structures,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-04-021,Accumulated Depreciation – School Buildings,Asset,"Property, Plant and Equipment",Buildings and Other Structures,Cr,1-07-04-020,"Property, Plant and Equipment",
+1-07-04-022,Accumulated Impairment Losses – School Buildings,Asset,"Property, Plant and Equipment",Buildings and Other Structures,Cr,1-07-04-020,"Property, Plant and Equipment",
+1-07-04-030,Hospitals and Health Centers,Asset,"Property, Plant and Equipment",Buildings and Other Structures,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-04-031,Accumulated Depreciation – Hospitals and Health Centers,Asset,"Property, Plant and Equipment",Buildings and Other Structures,Cr,1-07-04-030,"Property, Plant and Equipment",
+1-07-04-032,Accumulated Impairment Losses – Hospitals and Health Centers,Asset,"Property, Plant and Equipment",Buildings and Other Structures,Cr,1-07-04-030,"Property, Plant and Equipment",
+1-07-04-040,Markets,Asset,"Property, Plant and Equipment",Buildings and Other Structures,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-04-041,Accumulated Depreciation – Markets,Asset,"Property, Plant and Equipment",Buildings and Other Structures,Cr,1-07-04-040,"Property, Plant and Equipment",
+1-07-04-042,Accumulated Impairment Losses – Markets,Asset,"Property, Plant and Equipment",Buildings and Other Structures,Cr,1-07-04-040,"Property, Plant and Equipment",
+1-07-04-990,Other Structures,Asset,"Property, Plant and Equipment",Buildings and Other Structures,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-04-991,Accumulated Depreciation – Other Structures,Asset,"Property, Plant and Equipment",Buildings and Other Structures,Cr,1-07-04-990,"Property, Plant and Equipment",
+1-07-04-992,Accumulated Impairment Losses – Other Structures,Asset,"Property, Plant and Equipment",Buildings and Other Structures,Cr,1-07-04-990,"Property, Plant and Equipment",
+1-07-05-010,Machinery,Asset,"Property, Plant and Equipment",Machinery and Equipment,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-05-011,Accumulated Depreciation – Machinery,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-010,"Property, Plant and Equipment",
+1-07-05-012,Accumulated Impairment Losses – Machinery,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-010,"Property, Plant and Equipment",
+1-07-05-020,Office Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-05-021,Accumulated Depreciation – Office Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-020,"Property, Plant and Equipment",
+1-07-05-022,Accumulated Impairment Losses – Office Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-020,"Property, Plant and Equipment",
+1-07-05-030,Information and Communication Technology Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-05-031,Accumulated Depreciation – Information and Communication Technology Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-030,"Property, Plant and Equipment",
+1-07-05-032,Accumulated Impairment Losses – Information and Communication Technology Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-030,"Property, Plant and Equipment",
+1-07-05-040,Communication Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-05-041,Accumulated Depreciation – Communication Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-040,"Property, Plant and Equipment",
+1-07-05-042,Accumulated Impairment Losses – Communication Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-040,"Property, Plant and Equipment",
+1-07-05-050,Construction and Heavy Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-05-051,Accumulated Depreciation – Construction and Heavy Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-050,"Property, Plant and Equipment",
+1-07-05-052,Accumulated Impairment Losses – Construction and Heavy Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-050,"Property, Plant and Equipment",
+1-07-05-060,Disaster Response and Rescue Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-05-061,Accumulated Depreciation – Disaster Response and Rescue Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-060,"Property, Plant and Equipment",
+1-07-05-062,Accumulated Impairment Losses – Disaster Response and Rescue Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-060,"Property, Plant and Equipment",
+1-07-05-070,"Military, Police and Security Equipment",Asset,"Property, Plant and Equipment",Machinery and Equipment,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-05-071,"Accumulated Depreciation – Military, Police and Security Equipment",Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-070,"Property, Plant and Equipment",
+1-07-05-072,"Accumulated Impairment Losses – Military, Police and Security Equipment",Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-070,"Property, Plant and Equipment",
+1-07-05-080,Sports Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-05-081,Accumulated Depreciation – Sports Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-080,"Property, Plant and Equipment",
+1-07-05-082,Accumulated Impairment Losses – Sports Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-080,"Property, Plant and Equipment",
+1-07-05-090,Technical and Scientific Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-05-091,Accumulated Depreciation – Technical and Scientific Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-090,"Property, Plant and Equipment",
+1-07-05-092,Accumulated Impairment Losses – Technical and Scientific Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-090,"Property, Plant and Equipment",
+1-07-05-990,Other Machinery and Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-05-991,Accumulated Depreciation – Other Machinery and Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-990,"Property, Plant and Equipment",
+1-07-05-992,Accumulated Impairment Losses – Other Machinery and Equipment,Asset,"Property, Plant and Equipment",Machinery and Equipment,Cr,1-07-05-990,"Property, Plant and Equipment",
+1-07-06-010,Motor Vehicles,Asset,"Property, Plant and Equipment",Transportation Equipment,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-06-011,Accumulated Depreciation – Motor Vehicles,Asset,"Property, Plant and Equipment",Transportation Equipment,Cr,1-07-06-010,"Property, Plant and Equipment",
+1-07-06-012,Accumulated Impairment Losses – Motor Vehicles,Asset,"Property, Plant and Equipment",Transportation Equipment,Cr,1-07-06-010,"Property, Plant and Equipment",
+1-07-06-020,Watercrafts,Asset,"Property, Plant and Equipment",Transportation Equipment,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-06-021,Accumulated Depreciation – Watercrafts,Asset,"Property, Plant and Equipment",Transportation Equipment,Cr,1-07-06-020,"Property, Plant and Equipment",
+1-07-06-022,Accumulated Impairment Losses – Watercrafts,Asset,"Property, Plant and Equipment",Transportation Equipment,Cr,1-07-06-020,"Property, Plant and Equipment",
+1-07-06-990,Other Transportation Equipment,Asset,"Property, Plant and Equipment",Transportation Equipment,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-06-991,Accumulated Depreciation – Other Transportation Equipment,Asset,"Property, Plant and Equipment",Transportation Equipment,Cr,1-07-06-990,"Property, Plant and Equipment",
+1-07-06-992,Accumulated Impairment Losses – Other Transportation Equipment,Asset,"Property, Plant and Equipment",Transportation Equipment,Cr,1-07-06-990,"Property, Plant and Equipment",
+1-07-07-010,Furniture and Fixtures,Asset,"Property, Plant and Equipment","Furniture, Fixtures and Books",Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-07-011,Accumulated Depreciation – Furniture and Fixtures,Asset,"Property, Plant and Equipment","Furniture, Fixtures and Books",Cr,1-07-07-010,"Property, Plant and Equipment",
+1-07-07-012,Accumulated Impairment Losses – Furniture and Fixtures,Asset,"Property, Plant and Equipment","Furniture, Fixtures and Books",Cr,1-07-07-010,"Property, Plant and Equipment",
+1-07-07-020,Books,Asset,"Property, Plant and Equipment","Furniture, Fixtures and Books",Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-07-021,Accumulated Depreciation – Books,Asset,"Property, Plant and Equipment","Furniture, Fixtures and Books",Cr,1-07-07-020,"Property, Plant and Equipment",
+1-07-07-022,Accumulated Impairment Losses – Books,Asset,"Property, Plant and Equipment","Furniture, Fixtures and Books",Cr,1-07-07-020,"Property, Plant and Equipment",
+1-07-08-010,"Leased Assets, Land",Asset,"Property, Plant and Equipment",Leased Assets,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-08-012,"Accumulated Impairment Losses – Leased Assets, Land",Asset,"Property, Plant and Equipment",Leased Assets,Cr,1-07-08-010,"Property, Plant and Equipment",
+1-07-08-020,"Leased Assets, Buildings and Other Structures",Asset,"Property, Plant and Equipment",Leased Assets,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-08-021,"Accumulated Depreciation – Leased Assets, Buildings and Other Structures",Asset,"Property, Plant and Equipment",Leased Assets,Cr,1-07-08-020,"Property, Plant and Equipment",
+1-07-08-022,"Accumulated Impairment Losses – Leased Assets, Buildings and Other Structures",Asset,"Property, Plant and Equipment",Leased Assets,Cr,1-07-08-020,"Property, Plant and Equipment",
+1-07-08-030,"Leased Assets, Machinery and Equipment",Asset,"Property, Plant and Equipment",Leased Assets,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-08-031,"Accumulated Depreciation – Leased Assets, Machinery and Equipment",Asset,"Property, Plant and Equipment",Leased Assets,Cr,1-07-08-030,"Property, Plant and Equipment",
+1-07-08-032,"Accumulated Impairment Losses – Leased Assets, Machinery and Equipment",Asset,"Property, Plant and Equipment",Leased Assets,Cr,1-07-08-030,"Property, Plant and Equipment",
+1-07-08-040,"Leased Assets, Transportation Equipment",Asset,"Property, Plant and Equipment",Leased Assets,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-08-041,"Accumulated Depreciation – Leased Assets, Transportation Equipment",Asset,"Property, Plant and Equipment",Leased Assets,Cr,1-07-08-040,"Property, Plant and Equipment",
+1-07-08-042,"Accumulated Impairment Losses – Leased Assets, Transportation Equipment",Asset,"Property, Plant and Equipment",Leased Assets,Cr,1-07-08-040,"Property, Plant and Equipment",
+1-07-08-990,Other Leased Assets,Asset,"Property, Plant and Equipment",Leased Assets,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-08-991,Accumulated Depreciation – Other Leased Assets,Asset,"Property, Plant and Equipment",Leased Assets,Cr,1-07-08-990,"Property, Plant and Equipment",
+1-07-08-992,Accumulated Impairment Losses – Other Leased Assets,Asset,"Property, Plant and Equipment",Leased Assets,Cr,1-07-08-990,"Property, Plant and Equipment",
+1-07-09-010,"Leased Assets Improvements, Land",Asset,"Property, Plant and Equipment",Leased Assets Improvements,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-09-011,"Accumulated Depreciation – Leased Assets Improvements, Land",Asset,"Property, Plant and Equipment",Leased Assets Improvements,Cr,1-07-09-010,"Property, Plant and Equipment",
+1-07-09-012,"Accumulated Impairment Losses – Leased Assets Improvements, Land",Asset,"Property, Plant and Equipment",Leased Assets Improvements,Cr,1-07-09-010,"Property, Plant and Equipment",
+1-07-09-020,"Leased Assets Improvements, Buildings",Asset,"Property, Plant and Equipment",Leased Assets Improvements,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-09-021,"Accumulated Depreciation – Leased Assets Improvements, Buildings",Asset,"Property, Plant and Equipment",Leased Assets Improvements,Cr,1-07-09-020,"Property, Plant and Equipment",
+1-07-09-022,"Accumulated Impairment Losses – Leased Assets Improvements, Buildings",Asset,"Property, Plant and Equipment",Leased Assets Improvements,Cr,1-07-09-020,"Property, Plant and Equipment",
+1-07-09-990,Other Leased Assets Improvements,Asset,"Property, Plant and Equipment",Leased Assets Improvements,Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-09-991,Accumulated Depreciation – Other Leased Assets Improvements,Asset,"Property, Plant and Equipment",Leased Assets Improvements,Cr,1-07-09-990,"Property, Plant and Equipment",
+1-07-09-992,Accumulated Impairment Losses – Other Leased Assets Improvements,Asset,"Property, Plant and Equipment",Leased Assets Improvements,Cr,1-07-09-990,"Property, Plant and Equipment",
+1-07-10-010,Construction in Progress – Land Improvements,Asset,"Property, Plant and Equipment",Construction in Progress,Dr,,"Property, Plant and Equipment",per project
+1-07-10-020,Construction in Progress – Infrastructure Assets,Asset,"Property, Plant and Equipment",Construction in Progress,Dr,,"Property, Plant and Equipment",per project
+1-07-10-030,Construction in Progress – Buildings and Other Structures,Asset,"Property, Plant and Equipment",Construction in Progress,Dr,,"Property, Plant and Equipment",per project
+1-07-10-040,Construction in Progress – Leased Assets,Asset,"Property, Plant and Equipment",Construction in Progress,Dr,,"Property, Plant and Equipment",per project
+1-07-10-050,Construction in Progress – Leased Assets Improvements,Asset,"Property, Plant and Equipment",Construction in Progress,Dr,,"Property, Plant and Equipment",per project
+1-07-99-990,"Other Property, Plant and Equipment",Asset,"Property, Plant and Equipment","Other Property, Plant and Equipment",Dr,,"Property, Plant and Equipment",per property item (PELC)
+1-07-99-991,"Accumulated Depreciation – Other Property, Plant and Equipment",Asset,"Property, Plant and Equipment","Other Property, Plant and Equipment",Cr,1-07-99-990,"Property, Plant and Equipment",
+1-07-99-992,"Accumulated Impairment Losses – Other Property, Plant and Equipment",Asset,"Property, Plant and Equipment","Other Property, Plant and Equipment",Cr,1-07-99-990,"Property, Plant and Equipment",
+1-08-01-010,Biological Assets,Asset,Biological Assets,Biological Assets,Dr,,Biological Assets,per asset type (BAPC)
+2-01-01-010,Accounts Payable,Liability,Financial Liabilities,Payables,Cr,,Financial Liabilities,per creditor
+2-01-01-020,Due to Officers and Employees,Liability,Financial Liabilities,Payables,Cr,,Financial Liabilities,per creditor
+2-01-01-030,Interest Payable,Liability,Financial Liabilities,Payables,Cr,,Financial Liabilities,per creditor
+2-01-01-040,Operating Lease Payable,Liability,Financial Liabilities,Payables,Cr,,Financial Liabilities,per creditor
+2-01-01-050,Finance Lease Payable,Liability,Financial Liabilities,Payables,Cr,,Financial Liabilities,per creditor
+2-01-01-060,Leave Benefits Payable,Liability,Financial Liabilities,Payables,Cr,,Financial Liabilities,per creditor
+2-01-02-010,Other Provisions,Liability,Financial Liabilities,Provisions,Cr,,Provisions,
+2-01-03-010,Loans Payable – Domestic,Liability,Financial Liabilities,Bills/Bonds/Loans Payable,Cr,,Financial Liabilities,per loan
+2-02-01-010,Due to BIR,Liability,Inter-Agency Payables,Inter-Agency Payables,Cr,,Inter-Agency Payables,per agency
+2-02-01-020,Due to GSIS,Liability,Inter-Agency Payables,Inter-Agency Payables,Cr,,Inter-Agency Payables,per agency
+2-02-01-030,Due to Pag-IBIG,Liability,Inter-Agency Payables,Inter-Agency Payables,Cr,,Inter-Agency Payables,per agency
+2-02-01-040,Due to PhilHealth,Liability,Inter-Agency Payables,Inter-Agency Payables,Cr,,Inter-Agency Payables,per agency
+2-02-01-050,Due to NGAs,Liability,Inter-Agency Payables,Inter-Agency Payables,Cr,,Inter-Agency Payables,per agency
+2-02-01-060,Due to GOCCs,Liability,Inter-Agency Payables,Inter-Agency Payables,Cr,,Inter-Agency Payables,per agency
+2-02-01-070,Due to LGUs,Liability,Inter-Agency Payables,Inter-Agency Payables,Cr,,Inter-Agency Payables,per agency
+2-03-01-010,Trust Liabilities,Liability,Trust Liabilities,Trust Liabilities,Cr,,Trust Liabilities,per trust fund (RSTF)
+2-03-01-020,Guaranty/Security Deposits Payable,Liability,Trust Liabilities,Trust Liabilities,Cr,,Trust Liabilities,per depositor
+2-03-01-030,Trust Liabilities – Disaster Risk Reduction and Management Fund (DRRMF),Liability,Trust Liabilities,Trust Liabilities,Cr,,Trust Liabilities,per year of source
+2-99-99-990,Other Payables,Liability,Other Payables,Other Payables,Cr,,Other Payables,per creditor
+3-01-01-010,Government Equity,Equity,Government Equity,Government Equity,Cr,,Net Assets/Equity,
+3-01-01-020,Prior Years’ Adjustments,Equity,Government Equity,Government Equity,Cr,,Net Assets/Equity,
+3-01-02-010,Revenue and Expense Summary,Equity,Intermediate Accounts,Intermediate Accounts,Cr,,closing account – zero at year-end,
+4-01-01-010,Real Property Tax,Revenue,Tax Revenue,Tax Revenue – Property,Cr,,Tax Revenue,
+4-01-02-010,Business Tax,Revenue,Tax Revenue,Tax Revenue – Goods and Services,Cr,,Tax Revenue,
+4-01-02-020,"Share on the tax from sand, gravel and other quarry products",Revenue,Tax Revenue,Tax Revenue – Goods and Services,Cr,,Tax Revenue,
+4-01-03-010,"Fees and Charges on commercial breeding of fighting cocks, cockfights and cockpits",Revenue,Tax Revenue,Tax Revenue – Permit Fees,Cr,,Tax Revenue,
+4-01-03-020,Fees and Charges on places of recreation which charge admission fees,Revenue,Tax Revenue,Tax Revenue – Permit Fees,Cr,,Tax Revenue,
+4-01-03-030,"Fees and Charges on billboards, signboards, neon signs and outdoor advertisements",Revenue,Tax Revenue,Tax Revenue – Permit Fees,Cr,,Tax Revenue,
+4-01-04-010,Share from Internal Revenue Collections,Revenue,Tax Revenue,Tax Revenue – Others,Cr,,Share from Internal Revenue Collections,
+4-01-04-990,Other Taxes,Revenue,Tax Revenue,Tax Revenue – Others,Cr,,Tax Revenue,
+4-01-05-010,Tax Revenue – Fines and Penalties – Property,Revenue,Tax Revenue,Tax Revenue – Fines and Penalties,Cr,,Tax Revenue,
+4-01-05-020,Tax Revenue – Fines and Penalties – Goods and Services,Revenue,Tax Revenue,Tax Revenue – Fines and Penalties,Cr,,Tax Revenue,
+4-01-05-030,Tax Revenue – Fines and Penalties – Permit Fees,Revenue,Tax Revenue,Tax Revenue – Fines and Penalties,Cr,,Tax Revenue,
+4-01-05-990,Tax Revenue – Fines and Penalties – Others,Revenue,Tax Revenue,Tax Revenue – Fines and Penalties,Cr,,Tax Revenue,
+4-02-01-010,Subsidy from National Government,Revenue,Subsidy/Assistance,Subsidy/Assistance,Cr,,"Transfers, Assistance and Subsidy From",
+4-02-01-020,Subsidy from Other Local Government Units,Revenue,Subsidy/Assistance,Subsidy/Assistance,Cr,,"Transfers, Assistance and Subsidy From",
+4-02-01-030,Transfer of Unspent Previous Years’ LDRRMF,Revenue,Subsidy/Assistance,Subsidy/Assistance,Cr,,"Transfers, Assistance and Subsidy From",
+4-03-01-010,Share from National Wealth,Revenue,"Shares, Grants and Donations",Shares,Cr,,Share from National Wealth,
+4-03-02-010,Grants and Donations in Cash,Revenue,"Shares, Grants and Donations",Grants and Donations,Cr,,Grants and Donations,
+4-03-02-020,Grants and Donations in Kind,Revenue,"Shares, Grants and Donations",Grants and Donations,Cr,,Grants and Donations,
+4-04-01-010,Clearance and Certification Fees,Revenue,Service and Business Revenue,Service Revenue,Cr,,Service and Business Revenue,
+4-04-01-990,Other Service Revenue,Revenue,Service and Business Revenue,Service Revenue,Cr,,Service and Business Revenue,
+4-04-02-010,Garbage Fees,Revenue,Service and Business Revenue,Business Income,Cr,,Service and Business Revenue,
+4-04-02-020,Market Fees,Revenue,Service and Business Revenue,Business Income,Cr,,Service and Business Revenue,
+4-04-02-990,Other Business Income,Revenue,Service and Business Revenue,Business Income,Cr,,Service and Business Revenue,
+4-05-01-010,"Gain on Sale of Property, Plant and Equipment",Revenue,Gains,Gains,Cr,,Gains,
+4-05-01-020,Gain on Revaluation of Biological Assets,Revenue,Gains,Gains,Cr,,Gains,
+5-01-01-010,Salaries and Wages – Regular,Expense,Personnel Services,Salaries and Wages,Dr,,Personnel Services,
+5-01-01-020,Salaries and Wages – Casual/Contractual,Expense,Personnel Services,Salaries and Wages,Dr,,Personnel Services,
+5-01-02-010,Personal Economic Relief Allowance (PERA),Expense,Personnel Services,Other Compensation,Dr,,Personnel Services,
+5-01-02-020,Clothing/Uniform Allowance,Expense,Personnel Services,Other Compensation,Dr,,Personnel Services,
+5-01-02-030,Subsistence Allowance,Expense,Personnel Services,Other Compensation,Dr,,Personnel Services,
+5-01-02-040,Productivity Incentive Allowance,Expense,Personnel Services,Other Compensation,Dr,,Personnel Services,
+5-01-02-050,Honoraria,Expense,Personnel Services,Other Compensation,Dr,,Personnel Services,
+5-01-02-060,Year End Bonus,Expense,Personnel Services,Other Compensation,Dr,,Personnel Services,
+5-01-02-070,Cash Gift,Expense,Personnel Services,Other Compensation,Dr,,Personnel Services,
+5-01-02-990,Other Bonuses and Allowances,Expense,Personnel Services,Other Compensation,Dr,,Personnel Services,
+5-01-03-010,Retirement and Life Insurance Premiums,Expense,Personnel Services,Personnel Benefit Contributions,Dr,,Personnel Services,
+5-01-03-020,Pag-IBIG Contributions,Expense,Personnel Services,Personnel Benefit Contributions,Dr,,Personnel Services,
+5-01-03-030,PhilHealth Contributions,Expense,Personnel Services,Personnel Benefit Contributions,Dr,,Personnel Services,
+5-01-03-040,Employees Compensation Insurance Premiums,Expense,Personnel Services,Personnel Benefit Contributions,Dr,,Personnel Services,
+5-01-04-010,Terminal Leave Benefits,Expense,Personnel Services,Other Personnel Benefits,Dr,,Personnel Services,
+5-01-04-990,Other Personnel Benefits,Expense,Personnel Services,Other Personnel Benefits,Dr,,Personnel Services,
+5-02-01-010,Travelling Expenses – Local,Expense,Maintenance and Other Operating Expenses,Travelling Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-01-020,Travelling Expenses – Foreign,Expense,Maintenance and Other Operating Expenses,Travelling Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-02-010,Training Expenses,Expense,Maintenance and Other Operating Expenses,Training and Scholarship Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-03-010,Office Supplies Expenses,Expense,Maintenance and Other Operating Expenses,Supplies and Materials Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-03-020,Accountable Forms Expenses,Expense,Maintenance and Other Operating Expenses,Supplies and Materials Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-03-030,Welfare Goods Expenses,Expense,Maintenance and Other Operating Expenses,Supplies and Materials Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-03-040,Drugs and Medicines Expenses,Expense,Maintenance and Other Operating Expenses,Supplies and Materials Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-03-050,"Fuel, Oil and Lubricant Expenses",Expense,Maintenance and Other Operating Expenses,Supplies and Materials Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-03-990,Other Supplies and Materials Expenses,Expense,Maintenance and Other Operating Expenses,Supplies and Materials Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-04-010,Water Expenses,Expense,Maintenance and Other Operating Expenses,Utility Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-04-020,Electricity Expenses,Expense,Maintenance and Other Operating Expenses,Utility Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-05-010,Postage and Courier Services,Expense,Maintenance and Other Operating Expenses,Communication Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-05-020,Telephone Expenses,Expense,Maintenance and Other Operating Expenses,Communication Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-05-030,Internet Subscription Expenses,Expense,Maintenance and Other Operating Expenses,Communication Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-05-040,"Cable, Satellite, Telegraph and Radio Expenses",Expense,Maintenance and Other Operating Expenses,Communication Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-06-010,Demolition and Relocation Expenses,Expense,Maintenance and Other Operating Expenses,Demolition/Relocation and Desilting/Dredging Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-06-020,Desilting and Dredging Expenses,Expense,Maintenance and Other Operating Expenses,Demolition/Relocation and Desilting/Dredging Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-07-010,Auditing Services,Expense,Maintenance and Other Operating Expenses,Professional Services,Dr,,Maintenance and Other Operating Expenses,
+5-02-07-020,Consultancy Services,Expense,Maintenance and Other Operating Expenses,Professional Services,Dr,,Maintenance and Other Operating Expenses,
+5-02-07-990,Other Professional Services,Expense,Maintenance and Other Operating Expenses,Professional Services,Dr,,Maintenance and Other Operating Expenses,
+5-02-08-010,Environment/Sanitary Services,Expense,Maintenance and Other Operating Expenses,General Services,Dr,,Maintenance and Other Operating Expenses,
+5-02-08-020,Janitorial Services,Expense,Maintenance and Other Operating Expenses,General Services,Dr,,Maintenance and Other Operating Expenses,
+5-02-08-030,Security Services,Expense,Maintenance and Other Operating Expenses,General Services,Dr,,Maintenance and Other Operating Expenses,
+5-02-08-990,Other General Services,Expense,Maintenance and Other Operating Expenses,General Services,Dr,,Maintenance and Other Operating Expenses,
+5-02-09-010,Repairs and Maintenance – Land Improvements,Expense,Maintenance and Other Operating Expenses,Repairs and Maintenance,Dr,,Maintenance and Other Operating Expenses,
+5-02-09-020,Repairs and Maintenance – Infrastructure Assets,Expense,Maintenance and Other Operating Expenses,Repairs and Maintenance,Dr,,Maintenance and Other Operating Expenses,
+5-02-09-030,Repairs and Maintenance – Buildings and Other Structures,Expense,Maintenance and Other Operating Expenses,Repairs and Maintenance,Dr,,Maintenance and Other Operating Expenses,
+5-02-09-040,Repairs and Maintenance – Machinery and Equipment,Expense,Maintenance and Other Operating Expenses,Repairs and Maintenance,Dr,,Maintenance and Other Operating Expenses,
+5-02-09-050,Repairs and Maintenance – Transportation Equipment,Expense,Maintenance and Other Operating Expenses,Repairs and Maintenance,Dr,,Maintenance and Other Operating Expenses,
+5-02-09-060,Repairs and Maintenance – Furniture and Fixtures,Expense,Maintenance and Other Operating Expenses,Repairs and Maintenance,Dr,,Maintenance and Other Operating Expenses,
+5-02-09-070,Repairs and Maintenance – Leased Assets,Expense,Maintenance and Other Operating Expenses,Repairs and Maintenance,Dr,,Maintenance and Other Operating Expenses,
+5-02-09-080,Repairs and Maintenance – Leased Assets Improvements,Expense,Maintenance and Other Operating Expenses,Repairs and Maintenance,Dr,,Maintenance and Other Operating Expenses,
+5-02-09-990,"Repairs and Maintenance – Other Property, Plant and Equipment",Expense,Maintenance and Other Operating Expenses,Repairs and Maintenance,Dr,,Maintenance and Other Operating Expenses,
+5-02-10-010,LGU Equity on Other LGU/National/Foreign Funded Projects,Expense,Maintenance and Other Operating Expenses,Financial Assistance/Subsidy,Dr,,"Transfers, Assistance and Subsidy To",
+5-02-10-020,Transfer to TF unutilized current year allocation for LDRRMF,Expense,Maintenance and Other Operating Expenses,Financial Assistance/Subsidy,Dr,,"Transfers, Assistance and Subsidy To",
+5-02-10-030,Transfer of SK allocation,Expense,Maintenance and Other Operating Expenses,Financial Assistance/Subsidy,Dr,,"Transfers, Assistance and Subsidy To",
+5-02-10-990,Subsidies – Others,Expense,Maintenance and Other Operating Expenses,Financial Assistance/Subsidy,Dr,,"Transfers, Assistance and Subsidy To",
+5-02-11-010,Fidelity Bond Premiums,Expense,Maintenance and Other Operating Expenses,"Taxes, Insurance Premiums and Other Fees",Dr,,Maintenance and Other Operating Expenses,
+5-02-11-020,Insurance Expenses,Expense,Maintenance and Other Operating Expenses,"Taxes, Insurance Premiums and Other Fees",Dr,,Maintenance and Other Operating Expenses,
+5-02-12-010,Extraordinary and Miscellaneous Expenses,Expense,Maintenance and Other Operating Expenses,Extraordinary and Miscellaneous Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-99-010,Advertising Expense,Expense,Maintenance and Other Operating Expenses,Other Maintenance and Operating Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-99-020,Representation Expenses,Expense,Maintenance and Other Operating Expenses,Other Maintenance and Operating Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-99-030,Transportation and Delivery Expenses,Expense,Maintenance and Other Operating Expenses,Other Maintenance and Operating Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-99-040,Rent/Lease Expenses,Expense,Maintenance and Other Operating Expenses,Other Maintenance and Operating Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-99-050,Membership Dues and Contributions to Organizations,Expense,Maintenance and Other Operating Expenses,Other Maintenance and Operating Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-99-060,Subscription Expenses,Expense,Maintenance and Other Operating Expenses,Other Maintenance and Operating Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-99-070,Donations,Expense,Maintenance and Other Operating Expenses,Other Maintenance and Operating Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-02-99-990,Other Maintenance and Operating Expenses,Expense,Maintenance and Other Operating Expenses,Other Maintenance and Operating Expenses,Dr,,Maintenance and Other Operating Expenses,
+5-03-01-010,Interest Expenses,Expense,Financial Expenses,Financial Expenses,Dr,,Financial Expenses,
+5-03-01-020,Bank Charges,Expense,Financial Expenses,Financial Expenses,Dr,,Financial Expenses,
+5-03-01-990,Other Financial Charges,Expense,Financial Expenses,Financial Expenses,Dr,,Financial Expenses,
+5-04-01-010,Depreciation – Land Improvements,Expense,Non-Cash Expenses,Depreciation,Dr,,Non-cash Expenses,
+5-04-01-020,Depreciation – Infrastructure Assets,Expense,Non-Cash Expenses,Depreciation,Dr,,Non-cash Expenses,
+5-04-01-030,Depreciation – Buildings and Other Structures,Expense,Non-Cash Expenses,Depreciation,Dr,,Non-cash Expenses,
+5-04-01-040,Depreciation – Machinery and Equipment,Expense,Non-Cash Expenses,Depreciation,Dr,,Non-cash Expenses,
+5-04-01-050,Depreciation – Transportation Equipment,Expense,Non-Cash Expenses,Depreciation,Dr,,Non-cash Expenses,
+5-04-01-060,"Depreciation – Furniture, Fixtures and Books",Expense,Non-Cash Expenses,Depreciation,Dr,,Non-cash Expenses,
+5-04-01-070,Depreciation – Leased Assets,Expense,Non-Cash Expenses,Depreciation,Dr,,Non-cash Expenses,
+5-04-01-080,Depreciation – Leased Assets Improvements,Expense,Non-Cash Expenses,Depreciation,Dr,,Non-cash Expenses,
+5-04-01-990,"Depreciation – Other Property, Plant and Equipment",Expense,Non-Cash Expenses,Depreciation,Dr,,Non-cash Expenses,
+5-04-02-010,Impairment Loss – Land Improvements,Expense,Non-Cash Expenses,Impairment Losses,Dr,,Non-cash Expenses,
+5-04-02-020,Impairment Loss – Infrastructure Assets,Expense,Non-Cash Expenses,Impairment Losses,Dr,,Non-cash Expenses,
+5-04-02-030,Impairment Loss – Buildings and Other Structures,Expense,Non-Cash Expenses,Impairment Losses,Dr,,Non-cash Expenses,
+5-04-02-040,Impairment Loss – Machinery and Equipment,Expense,Non-Cash Expenses,Impairment Losses,Dr,,Non-cash Expenses,
+5-04-02-050,Impairment Loss – Transportation Equipment,Expense,Non-Cash Expenses,Impairment Losses,Dr,,Non-cash Expenses,
+5-04-02-060,"Impairment Loss – Furniture, Fixtures and Books",Expense,Non-Cash Expenses,Impairment Losses,Dr,,Non-cash Expenses,
+5-04-02-070,Impairment Loss – Leased Assets,Expense,Non-Cash Expenses,Impairment Losses,Dr,,Non-cash Expenses,
+5-04-02-080,Impairment Loss – Leased Assets Improvements,Expense,Non-Cash Expenses,Impairment Losses,Dr,,Non-cash Expenses,
+5-04-02-990,"Impairment Loss – Other Property, Plant and Equipment",Expense,Non-Cash Expenses,Impairment Losses,Dr,,Non-cash Expenses,
+5-04-03-010,"Loss on Sale of Property, Plant and Equipment",Expense,Non-Cash Expenses,Losses,Dr,,Non-cash Expenses,
+5-04-03-020,Loss on Sale of Assets,Expense,Non-Cash Expenses,Losses,Dr,,Non-cash Expenses,
+5-04-03-030,Loss of Assets,Expense,Non-Cash Expenses,Losses,Dr,,Non-cash Expenses,
+5-04-03-040,Loss on Revaluation of Biological Assets,Expense,Non-Cash Expenses,Losses,Dr,,Non-cash Expenses,
