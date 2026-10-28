@@ -28,7 +28,7 @@ jobs:
       - if: steps.check.outputs.ready != 'true'
         run: echo "Supabase secrets are not set; skipping. See docs/SETUP.md."
       - if: steps.check.outputs.ready == 'true'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - if: steps.check.outputs.ready == 'true'
         uses: supabase/setup-cli@v1
         with:

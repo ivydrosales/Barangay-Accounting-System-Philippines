@@ -1,6 +1,6 @@
 # Prompts to give Claude Code, in order
 
-> **Status (28 Oct 2026):** Prompts 1 and 2 are done; Phase 0 is built and tested (see README.md). Continue from Prompt 3.
+> **Status (28 Oct 2026):** Prompts 1 to 5 are done; Phase 0 and Phase 1 are built and tested (see README.md). Next: run one month in parallel with paper (the Phase 1 gate), then Phase 2.
 
 Paste one at a time. Wait for each to finish and read the summary before moving on. You do not need to understand the code; you need to confirm that what it describes matches the manual and the proposal.
 

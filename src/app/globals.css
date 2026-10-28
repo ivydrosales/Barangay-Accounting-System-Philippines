@@ -135,3 +135,333 @@ button.secondary {
   background: transparent;
   color: var(--accent);
 }
+
+/* a link that reads as a button, e.g. "PB Certification" on a DV */
+a.button {
+  display: inline-block;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-text);
+  text-decoration: none;
+}
+
+a.button.secondary {
+  background: transparent;
+  color: var(--accent);
+}
+
+/* --- app shell --- */
+
+.topnav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 8px 16px;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+
+.topnav .brand {
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.topnav .links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.topnav .links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.topnav .right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inline-form {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+button.small {
+  padding: 4px 10px;
+  font-size: 0.9rem;
+}
+
+select {
+  font: inherit;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--card);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.grid .span2 {
+  grid-column: span 2;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.two-col .card {
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .grid,
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+  .grid .span2 {
+    grid-column: span 1;
+  }
+}
+
+.flash {
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+
+.flash.ok {
+  border-color: var(--accent);
+}
+
+.flash.error {
+  border-color: var(--error);
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th,
+td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+td.num,
+th.num {
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+tr.cancelled td {
+  color: var(--muted);
+}
+
+.tag {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 0.75rem;
+  padding: 1px 6px;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+}
+
+/* --- COA annex layouts --- */
+
+.annex {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.35;
+  position: relative;
+}
+
+.annex-tag {
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  font-size: 11px;
+}
+
+.annex-title {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 8px 0 12px;
+}
+
+.annex-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 10px;
+}
+
+.annex-head u {
+  text-decoration: none;
+  border-bottom: 1px solid #000;
+  padding: 0 6px;
+  min-width: 120px;
+  display: inline-block;
+}
+
+.annex-section {
+  font-size: 12px;
+  font-weight: 700;
+  margin: 12px 0 4px;
+  text-transform: uppercase;
+}
+
+.annex-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.annex-table th,
+.annex-table td {
+  border: 1px solid #000;
+  padding: 3px 5px;
+  color: #000;
+  vertical-align: middle;
+}
+
+.annex-table th {
+  text-align: center;
+  font-weight: 600;
+  background: #f2f2f2;
+}
+
+.annex-table.small {
+  font-size: 11px;
+}
+
+.annex-table tr.total td {
+  font-weight: 700;
+}
+
+.annex-table td.indent {
+  padding-left: 24px;
+}
+
+.annex-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.annex-box {
+  border: 1px solid #000;
+  padding: 8px 10px;
+  margin-top: 10px;
+}
+
+.annex-box p {
+  font-style: italic;
+}
+
+.sig {
+  margin-top: 28px;
+  text-align: center;
+}
+
+.sig-row {
+  display: flex;
+  justify-content: space-around;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.sig-line {
+  border-bottom: 1px solid #000;
+  min-width: 200px;
+  display: inline-block;
+  padding: 0 12px;
+  font-weight: 600;
+}
+
+.sig-label {
+  font-size: 11px;
+}
+
+.sig-date {
+  margin-top: 6px;
+  font-size: 11px;
+}
+
+.cashbook th,
+.cashbook td {
+  padding: 2px 4px;
+  font-size: 10.5px;
+}
+
+@media (max-width: 720px) {
+  .annex-two {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+  main {
+    max-width: none;
+    padding: 0;
+  }
+  .annex {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+  .card {
+    display: none;
+  }
+}
