@@ -21,6 +21,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
           <Link href="/disbursements/checks">Checks</Link>
           <Link href="/disbursements/transmittal">Transmittal</Link>
           <Link href="/forms">Forms</Link>
+          <Link href="/forms/raaf">RAAF</Link>
         </div>
         <div className="right">
           {ctx.barangays.length > 1 ? (

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Flash } from "@/components/Flash";
 import { requireBarangay } from "@/lib/context";
 import { formatDate, todayManila } from "@/lib/format";
@@ -41,7 +42,8 @@ export default async function FormsPage({ searchParams }: { searchParams: Promis
           <h1>Accountable forms</h1>
           <p className="muted">
             {barangay.name} · booklets of Official Receipts, cash tickets and checks. Each serial is issued once, in order; the
-            Treasurer reports them monthly on the RAAF (Annex 18, coming next).
+            Treasurer reports them monthly on the <Link href="/forms/raaf">Report of Accountability for Accountable Forms</Link>{" "}
+            (RAAF, Annex 18).
           </p>
         </div>
       </header>

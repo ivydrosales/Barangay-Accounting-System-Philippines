@@ -6,11 +6,11 @@ One city or municipality is a tenant. Its barangays sit under it. Barangay offic
 
 ## Status
 
-**Phase 0 (foundation) is built.** The database holds the master data (LGUs, barangays, officials, funds, bank accounts, suppliers, employees, accountable forms), the 280-account COA chart, the journal (JCT and GJ) with periods and document numbering, an append-only audit trail and row-level security. The app signs users in and shows them what they can see. All 163 database rule checks pass across Phase 0 and Phase 1.
+**Phase 0 (foundation) is built.** The database holds the master data (LGUs, barangays, officials, funds, bank accounts, suppliers, employees, accountable forms), the 280-account COA chart, the journal (JCT and GJ) with periods and document numbering, an append-only audit trail and row-level security. The app signs users in and shows them what they can see. All 184 database rule checks pass across Phase 0 and Phase 1.
 
 **Phase 1, collections, is built:** Official Receipts issued in serial order from booklets, the collector's Report of Collections and Remittances (Annex 9.1), the Treasurer's Report of Collections and Deposits (Annex 9) with its accounting entries posted to the Journal of Cash Transactions, and the Cashbook (Annex 8), each printable in the manual's layout.
 
-**Phase 1, disbursements, is built:** Disbursement Vouchers (Annex 12) that move through Boxes A (CCA), B (Treasurer) and C (Punong Barangay) before a check can be drawn, the check register with a printable Punong Barangay Certification, Box D on release, posting to the Journal of Cash Transactions, the Transmittal Letter to the Accountant (Annex 16), and a screen for OR and check booklets. Next in Phase 1: the Report of Accountability for Accountable Forms (Annex 18) and the parallel-run checklist. The full plan is in `docs/PROPOSAL.md` section 10.
+**Phase 1, disbursements, is built:** Disbursement Vouchers (Annex 12) that move through Boxes A (CCA), B (Treasurer) and C (Punong Barangay) before a check can be drawn, the check register with a printable Punong Barangay Certification, Box D on release, posting to the Journal of Cash Transactions, the Transmittal Letter to the Accountant (Annex 16), a screen for OR and check booklets, and the monthly Report of Accountability for Accountable Forms (Annex 18). Next in Phase 1: the parallel-run checklist. The full plan is in `docs/PROPOSAL.md` section 10.
 
 ## What is where
 
@@ -25,7 +25,7 @@ One city or municipality is a tenant. Its barangays sit under it. Barangay offic
 | `supabase/seed.sql` | The chart of accounts as SQL (generated; run `npm run seed:gen` after editing the CSV) |
 | `supabase/tests/` | Rule tests: balanced entries, immutable postings, closed periods, numbering, access |
 | `supabase/bootstrap/first_lgu.sql` | One-time script that creates the first LGU, its barangays and your admin login |
-| `src/app/` | The Next.js app: login, home, Official Receipts, RCR, RCD, Cashbook, DVs, checks, Transmittal Letters, accountable forms |
+| `src/app/` | The Next.js app: login, home, Official Receipts, RCR, RCD, Cashbook, DVs, checks, Transmittal Letters, accountable forms, RAAF |
 | `src/lib/supabase/` | Supabase clients for server, browser and middleware |
 | `scripts/` | `db-test.sh` (build a throwaway database and run the tests), `gen-seed.mjs` |
 | `.github/workflows/` | CI (lint, build, database tests) and the migration deploy to Supabase |

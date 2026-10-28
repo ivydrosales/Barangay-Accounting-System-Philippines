@@ -60,7 +60,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ o
           Prepare <Link href="/disbursements">Disbursement Vouchers</Link> and walk them through Boxes A, B and C, draw checks
           and print the Punong Barangay Certification from the <Link href="/disbursements/checks">check register</Link>, and send
           the month&apos;s paid vouchers and RCDs to the Accountant on a <Link href="/disbursements/transmittal">Transmittal Letter</Link>.
-          Booklets of ORs and checks are recorded under <Link href="/forms">Accountable forms</Link>.
+          Booklets of ORs and checks are recorded under <Link href="/forms">Accountable forms</Link> and reported monthly on
+          the <Link href="/forms/raaf">RAAF</Link>.
         </p>
       </section>
 

@@ -275,4 +275,66 @@ select pg_temp.assert(
   (select status = 'received' and received_by = 'Rita Receiving' from receive_transmittal(current_setting('test.tl1')::uuid, 'Rita Receiving')),
   'the Accountant''s office acknowledges receipt of the TL');
 
+-- ---------------------------------------------------------------------------
+-- RAAF (Annex 18): one report a month for every booklet
+-- ---------------------------------------------------------------------------
+
+reset role;
+insert into accountable_form (lgu_id, barangay_id, form_type, form_name, series, serial_from, serial_to, next_serial, received_on) values
+  ('10000000-0000-0000-0000-000000000001', '20000000-0000-0000-0000-000000000001', 'cash_ticket', 'Cash Ticket', 'CT-1', 1, 100, 1, '2026-01-15'),
+  ('10000000-0000-0000-0000-000000000001', '20000000-0000-0000-0000-000000000001', 'official_receipt', 'Accountable Form No. 51', 'OR-1', 5001, 5050, 5001, '2026-03-10');
+set local role authenticated;
+select pg_temp.login('00000000-0000-0000-0000-000000000001');
+
+do $$
+declare
+  v_b     uuid := '20000000-0000-0000-0000-000000000001';
+  v_r     raaf;
+  v_today date := manila_today();
+begin
+  perform pg_temp.assert((select count(*) = 3 from raaf_compute(v_b, 2026, 2)), 'February lists the cash tickets and both checkbooks');
+  perform pg_temp.assert((select rec_qty = 50 and rec_from = 100001 and rec_to = 100050 and iss_qty = 0 and end_qty = 50
+                          from raaf_compute(v_b, 2026, 2) where series = 'Checkbook 1'), 'a checkbook received in February shows under receipts');
+
+  perform pg_temp.assert((select count(*) = 4 from raaf_compute(v_b, 2026, 3)), 'March lists four booklets');
+  perform pg_temp.assert((select section = 'A' and beg_qty = 100 and beg_from = 1 and beg_to = 100 and end_qty = 100
+                          from raaf_compute(v_b, 2026, 3) where line_no = 1), 'cash tickets come first, in section A (with money value)');
+  perform pg_temp.assert((select section = 'B' and series = 'OR-1' and beg_qty = 0 and rec_qty = 50 and rec_from = 5001 and end_qty = 50 and end_from = 5001
+                          from raaf_compute(v_b, 2026, 3) where line_no = 2), 'Official Receipts follow in section B');
+  perform pg_temp.assert((select beg_qty = 50 and beg_from = 100001 and iss_qty = 1 and iss_from = 100001 and iss_to = 100001
+                                 and end_qty = 49 and end_from = 100002 and end_to = 100050
+                          from raaf_compute(v_b, 2026, 3) where series = 'Checkbook 1'), 'check 100001 issued in March leaves 49 checks, 100002 to 100050');
+  perform pg_temp.assert((select iss_qty = 50 and iss_from = 200101 and iss_to = 200150 and end_qty = 0 and end_from is null
+                          from raaf_compute(v_b, extract(year from v_today)::int, extract(month from v_today)::int) where series = 'Checkbook 2'),
+    'a booklet returned this month is reported as issued in full and leaves the report after');
+  perform pg_temp.assert((select disposed_on = v_today from accountable_form where series = 'Checkbook 2'), 'marking a booklet returned stamps the date');
+  perform pg_temp.expect_error($q$ update accountable_form set disposed_on = '2026-01-01' where series = 'Checkbook 2' $q$, 'the return date cannot be backdated by hand');
+
+  v_r := prepare_raaf(v_b, 2026, 3);
+  perform pg_temp.assert(v_r.status = 'draft' and v_r.raaf_no is null and v_r.treasurer_official_id = '40000000-0000-0000-0000-000000000001',
+    'a draft RAAF names the Treasurer and has no number yet');
+  perform pg_temp.expect_error(format('select prepare_raaf(%L, 2026, 3)', v_b), 'one RAAF per barangay per month');
+  perform pg_temp.expect_error(format('select prepare_raaf(%L, 2099, 1)', v_b), 'a month that has not started cannot be reported');
+  perform pg_temp.expect_error(format($q$ update raaf set status = 'certified', raaf_no = 'X' where id = %L $q$, v_r.id), 'a RAAF is certified only through certify_raaf()');
+  perform pg_temp.expect_error(format($q$ insert into raaf_line (raaf_id, line_no, section, form_type, form_name, accountable_form_id, beg_qty, rec_qty, iss_qty, end_qty)
+                                          values (%L, 9, 'B', 'check', 'x', '60000000-0000-0000-0000-000000000004', 1, 0, 0, 1) $q$, v_r.id), 'RAAF lines cannot be added by hand');
+
+  perform pg_temp.login('00000000-0000-0000-0000-000000000007');
+  perform pg_temp.expect_error(format('select certify_raaf(%L)', v_r.id), 'only the Treasurer certifies the RAAF');
+  perform pg_temp.login('00000000-0000-0000-0000-000000000001');
+
+  v_r := certify_raaf(v_r.id);
+  perform pg_temp.assert(v_r.status = 'certified' and v_r.raaf_no = '2026-03-001', 'the certified RAAF is numbered 2026-03-001');
+  perform pg_temp.assert((select count(*) = 4 from raaf_line where raaf_id = v_r.id), 'its four lines are stored as certified');
+  perform pg_temp.expect_error(format($q$ update raaf_line set end_qty = 0 where raaf_id = %L $q$, v_r.id), 'certified lines cannot be changed');
+  perform pg_temp.expect_error(format($q$ delete from raaf where id = %L $q$, v_r.id), 'a certified RAAF cannot be deleted');
+
+  v_r := prepare_raaf(v_b, extract(year from v_today)::int, extract(month from v_today)::int);
+  if v_today < (date_trunc('month', v_today) + interval '1 month - 1 day')::date then
+    perform pg_temp.expect_error(format('select certify_raaf(%L)', v_r.id), 'the current month is certified from its last day');
+  end if;
+  delete from raaf where id = v_r.id;
+  perform pg_temp.assert(not exists (select 1 from raaf where id = v_r.id), 'a draft RAAF can be deleted');
+end $$;
+
 rollback;
