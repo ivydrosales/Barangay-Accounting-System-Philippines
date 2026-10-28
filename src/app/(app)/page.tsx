@@ -1,22 +1,7 @@
 import Link from "next/link";
 import { Flash } from "@/components/Flash";
 import { getAppContext } from "@/lib/context";
-
-// Plain-language names for the roles in app_role (see migration 1).
-const ROLE_LABELS: Record<string, string> = {
-  punong_barangay: "Punong Barangay",
-  barangay_treasurer: "Barangay Treasurer",
-  cca: "Chairman, Committee on Appropriations",
-  barangay_secretary: "Barangay Secretary",
-  sk_chairperson: "SK Chairperson",
-  deputized_collector: "Deputized Barangay Collector",
-  property_custodian: "Property Custodian",
-  petty_cash_custodian: "Petty Cash Custodian",
-  lgu_accountant: "City/Municipal Accountant",
-  lgu_bookkeeper: "Bookkeeper",
-  lgu_admin: "LGU Administrator",
-  coa_auditor: "COA Auditor (read-only)",
-};
+import { ROLE_LABELS } from "@/lib/labels";
 
 type BarangayRow = { id: string; name: string; fund: { code: string; name: string }[] };
 
@@ -66,6 +51,16 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ o
           Issue <Link href="/collections">Official Receipts</Link>, turn collectors&apos; receipts over on an{" "}
           <Link href="/collections/rcr">RCR</Link>, report the day on an <Link href="/collections/rcd">RCD</Link>, and
           keep the <Link href="/cashbook">Cashbook</Link> up to date.
+        </p>
+      </section>
+
+      <section className="card">
+        <h2>Disbursements</h2>
+        <p>
+          Prepare <Link href="/disbursements">Disbursement Vouchers</Link> and walk them through Boxes A, B and C, draw checks
+          and print the Punong Barangay Certification from the <Link href="/disbursements/checks">check register</Link>, and send
+          the month&apos;s paid vouchers and RCDs to the Accountant on a <Link href="/disbursements/transmittal">Transmittal Letter</Link>.
+          Booklets of ORs and checks are recorded under <Link href="/forms">Accountable forms</Link>.
         </p>
       </section>
 

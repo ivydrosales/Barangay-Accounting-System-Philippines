@@ -136,6 +136,23 @@ button.secondary {
   color: var(--accent);
 }
 
+/* a link that reads as a button, e.g. "PB Certification" on a DV */
+a.button {
+  display: inline-block;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-text);
+  text-decoration: none;
+}
+
+a.button.secondary {
+  background: transparent;
+  color: var(--accent);
+}
+
 /* --- app shell --- */
 
 .topnav {

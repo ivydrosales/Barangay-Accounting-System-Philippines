@@ -41,6 +41,9 @@ export async function getAppContext() {
   const wanted = cookieStore.get("barangay_id")?.value;
   const barangay = barangays.find((b) => b.id === wanted) ?? barangays[0] ?? null;
 
+  // Roles that apply to the barangay being worked on: its own officers plus LGU-level staff.
+  const roles = new Set(memberships.filter((m) => m.barangay_id === null || m.barangay_id === barangay?.id).map((m) => m.role));
+
   const isLguStaff = memberships.some((m) => LGU_STAFF.includes(m.role));
   const isAuditorOnly = memberships.length > 0 && memberships.every((m) => m.role === "coa_auditor");
 
@@ -51,6 +54,7 @@ export async function getAppContext() {
     barangays,
     barangay,
     isLguStaff,
+    roles,
     canWrite: !isAuditorOnly && memberships.length > 0,
   };
 }
