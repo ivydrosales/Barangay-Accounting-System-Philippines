@@ -1,6 +1,6 @@
-import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
-import { signOut } from "./login/actions";
+import Link from "next/link";
+import { Flash } from "@/components/Flash";
+import { getAppContext } from "@/lib/context";
 
 // Plain-language names for the roles in app_role (see migration 1).
 const ROLE_LABELS: Record<string, string> = {
@@ -9,7 +9,7 @@ const ROLE_LABELS: Record<string, string> = {
   cca: "Chairman, Committee on Appropriations",
   barangay_secretary: "Barangay Secretary",
   sk_chairperson: "SK Chairperson",
-  deputized_collector: "Deputized Collector",
+  deputized_collector: "Deputized Barangay Collector",
   property_custodian: "Property Custodian",
   petty_cash_custodian: "Petty Cash Custodian",
   lgu_accountant: "City/Municipal Accountant",
@@ -18,59 +18,34 @@ const ROLE_LABELS: Record<string, string> = {
   coa_auditor: "COA Auditor (read-only)",
 };
 
-type Membership = {
-  role: string;
-  lgu: { name: string; lgu_type: string } | null;
-  barangay: { name: string } | null;
-};
+type BarangayRow = { id: string; name: string; fund: { code: string; name: string }[] };
 
-type BarangayRow = {
-  id: string;
-  name: string;
-  fund: { code: string; name: string }[];
-};
+export default async function Home({ searchParams }: { searchParams: Promise<{ ok?: string; error?: string }> }) {
+  const { ok, error } = await searchParams;
+  const { supabase, user, memberships } = await getAppContext();
 
-export default async function Home() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) redirect("/login");
-
-  const [{ data: membershipRows }, { count: accountCount }, { data: barangayRows }] =
-    await Promise.all([
-      supabase
-        .from("user_membership")
-        .select("role, lgu:lgu_id(name, lgu_type), barangay:barangay_id(name)")
-        .eq("user_id", user.id)
-        .eq("is_active", true),
-      supabase.from("account").select("code", { count: "exact", head: true }),
-      supabase.from("barangay").select("id, name, fund(code, name)").order("name"),
-    ]);
-
-  const memberships = (membershipRows ?? []) as unknown as Membership[];
+  const [{ count: accountCount }, { data: barangayRows }] = await Promise.all([
+    supabase.from("account").select("code", { count: "exact", head: true }),
+    supabase.from("barangay").select("id, name, fund(code, name)").order("name"),
+  ]);
   const barangays = (barangayRows ?? []) as unknown as BarangayRow[];
 
   return (
-    <main>
+    <>
       <header className="row">
         <div>
-          <h1>Barangay Accounting System</h1>
+          <h1>Home</h1>
           <p className="muted">Signed in as {user.email}</p>
         </div>
-        <form action={signOut}>
-          <button type="submit" className="secondary">
-            Sign out
-          </button>
-        </form>
       </header>
+      <Flash ok={ok} error={error} />
 
       <section className="card">
         <h2>Your access</h2>
         {memberships.length === 0 ? (
           <p>
-            Your account has no role yet. Ask your LGU administrator to add you to a
-            barangay or to the Accountant&apos;s office.
+            Your account has no role yet. Ask your LGU administrator to add you to a barangay or to the
+            Accountant&apos;s office.
           </p>
         ) : (
           <ul>
@@ -83,6 +58,15 @@ export default async function Home() {
             ))}
           </ul>
         )}
+      </section>
+
+      <section className="card">
+        <h2>Collections</h2>
+        <p>
+          Issue <Link href="/collections">Official Receipts</Link>, turn collectors&apos; receipts over on an{" "}
+          <Link href="/collections/rcr">RCR</Link>, report the day on an <Link href="/collections/rcd">RCD</Link>, and
+          keep the <Link href="/cashbook">Cashbook</Link> up to date.
+        </p>
       </section>
 
       <section className="card">
@@ -108,15 +92,10 @@ export default async function Home() {
       <section className="card">
         <h2>Chart of accounts</h2>
         <p>
-          {accountCount ?? 0} COA accounts loaded (Manual on the Financial Management of
-          Barangays, 2018, Chapter XIII).
+          {accountCount ?? 0} COA accounts loaded (Manual on the Financial Management of Barangays, 2018, Chapter
+          XIII).
         </p>
       </section>
-
-      <p className="muted">
-        Phase 0 (foundation). Collections, the Cashbook and Disbursement Vouchers come in
-        Phase 1.
-      </p>
-    </main>
+    </>
   );
 }

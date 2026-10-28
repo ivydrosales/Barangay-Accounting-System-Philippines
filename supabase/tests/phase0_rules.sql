@@ -124,8 +124,8 @@ begin
 
   update journal_line set credit = 1500 where entry_id = v_e1 and line_no = 2;
   v_row := post_journal_entry(v_e1);
-  perform pg_temp.assert(v_row.status = 'posted' and v_row.entry_no = '2026-01-0001' and v_row.period_id is not null,
-    'a balanced entry posts and receives number 2026-01-0001');
+  perform pg_temp.assert(v_row.status = 'posted' and v_row.entry_no = '2026-01-001' and v_row.period_id is not null,
+    'a balanced entry posts and receives number 2026-01-001');
   perform pg_temp.assert(
     (select status = 'open' from period where barangay_id = v_b and fiscal_year = 2026 and month = 1),
     'posting opens the period on first use');
@@ -144,14 +144,14 @@ begin
   insert into journal_line (entry_id, line_no, account_code, debit)  values (v_e2, 1, '1-01-01-010', 200);
   insert into journal_line (entry_id, line_no, account_code, credit) values (v_e2, 2, v_rev, 200);
   v_row := post_journal_entry(v_e2);
-  perform pg_temp.assert(v_row.entry_no = '2026-01-0002', 'second JCT entry is 2026-01-0002');
+  perform pg_temp.assert(v_row.entry_no = '2026-01-002', 'second JCT entry is 2026-01-002');
 
   insert into journal_entry (lgu_id, barangay_id, fund_id, book, entry_date, description)
   values (v_lgu, v_b, v_fund, 'JCT', '2026-02-03', 'Third') returning id into v_e3;
   insert into journal_line (entry_id, line_no, account_code, debit)  values (v_e3, 1, '1-01-01-010', 300);
   insert into journal_line (entry_id, line_no, account_code, credit) values (v_e3, 2, v_rev, 300);
   v_row := post_journal_entry(v_e3);
-  perform pg_temp.assert(v_row.entry_no = '2026-02-0003', 'February entry continues the yearly series as 2026-02-0003');
+  perform pg_temp.assert(v_row.entry_no = '2026-02-003', 'February entry continues the yearly series as 2026-02-003');
 
   -- line rules
   perform pg_temp.expect_error(
@@ -207,7 +207,7 @@ declare
   v_rev  journal_entry;
 begin
   v_rev := reverse_journal_entry(v_orig, '2026-02-10', 'posted to the wrong fund');
-  perform pg_temp.assert(v_rev.book = 'GJ' and v_rev.entry_no = '2026-02-0001' and v_rev.status = 'posted' and v_rev.reverses_entry_id = v_orig,
+  perform pg_temp.assert(v_rev.book = 'GJ' and v_rev.entry_no = '2026-02-001' and v_rev.status = 'posted' and v_rev.reverses_entry_id = v_orig,
     'reversal is a posted GJ entry with its own series');
   perform pg_temp.assert(
     (select status = 'reversed' and reversed_by_id = v_rev.id from journal_entry where id = v_orig),

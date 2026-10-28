@@ -37,7 +37,8 @@ When the manual and this file disagree, the manual wins. When something is not i
 
 ## Repository layout and commands
 
-- `supabase/migrations/` — numbered SQL files, applied in order. Add a new file for every schema change; never edit an applied one. Phase 0 files: `..01_foundation` (enums, helpers), `..02_master_data` (lgu, barangay, user_membership, access helpers, account, official, fund, bank_account, supplier, employee, accountable_form), `..03_journal` (period, document_sequence, journal_entry, journal_line, posting/reversal functions, ledger views), `..04_audit_and_rls` (audit_log, policies, grants).
+- `supabase/migrations/` — numbered SQL files, applied in order. Add a new file for every schema change; never edit an applied one. Phase 0 files: `..01_foundation` (enums, helpers), `..02_master_data` (lgu, barangay, user_membership, access helpers, account, official, fund, bank_account, supplier, employee, accountable_form), `..03_journal` (period, document_sequence, journal_entry, journal_line, posting/reversal functions, ledger views), `..04_audit_and_rls` (audit_log, policies, grants). Phase 1: `..05_collections` (collection_type, official_receipt, rcr, rcd, deposit; `issue_official_receipt`, `cancel_official_receipt`, `prepare_rcr`/`certify_rcr`/`acknowledge_rcr`, `prepare_rcd`/`certify_rcd`/`post_rcd`, `report_accountable_forms`, `rcd_collection_lines`, `cashbook_lines` view + `cashbook()`).
+- Screens live under `src/app/(app)/` behind the signed-in layout: `/collections` (ORs), `/collections/rcr`, `/collections/rcd`, `/cashbook`. Each report page renders the annex layout in an `<article class="annex">` and prints as-is (Print button, `@media print` hides the chrome). Server Actions in `actions.ts` call the database functions and redirect back with `?ok=`/`?error=` (`src/lib/actions.ts`). `getAppContext()`/`requireBarangay()` in `src/lib/context.ts` give the signed-in user, their memberships and the barangay they are working on (cookie `barangay_id`; accountants switch in the nav).
 - `supabase/seed.sql` is generated from `data/chart_of_accounts.csv` by `npm run seed:gen`. Edit the CSV, never the SQL.
 - `supabase/tests/*.sql` — rule tests in plain SQL (`pg_temp.assert`, `pg_temp.expect_error`, `pg_temp.login(user)`), run by `npm run db:test` (`scripts/db-test.sh`) against a throwaway database. Every new database rule gets a test here; CI runs them.
 - `src/app/` Next.js App Router pages; `src/lib/supabase/` the three Supabase clients (server, client, middleware). Server Components and Server Actions talk to Supabase with the user's own session, so RLS does the authorization.
@@ -47,10 +48,19 @@ When the manual and this file disagree, the manual wins. When something is not i
 
 ### Phase 0 product decisions made so far (confirm with Ivy / the accountant)
 
-- Serial numbers are padded to four digits (`2026-01-0001`).
+- Document numbers follow the manual's `0000-00-000` layout: year, month, three-digit serial (`2026-01-001`), one series per barangay, document type and year.
 - A closed period cannot be reopened, even by the Accountant; corrections are reversing entries in an open period.
 - Every new barangay automatically gets the funds GF, SK, LDRRMF, DF (20% Development) and CA (continuing appropriations); STFs are added by hand, one per purpose.
 - Entry numbers are taken at posting time, so abandoned drafts leave no gaps.
+
+### Phase 1 product decisions made so far (confirm with Ivy / the accountant)
+
+- Printed forms are print-ready web pages in the annex layout (browser Print → Save as PDF). Server-generated PDF files wait until the Google Drive monthly package needs them.
+- RCR and RCD numbers are assigned when the report is certified; drafts are unnumbered and can be deleted.
+- A collector's ORs reach the RCD only through an RCR the Treasurer has acknowledged; the Treasurer's own ORs go straight onto the RCD.
+- Deposits carry a fund (default General Fund) because the one depository account serves every fund; the JCT deposit entry is per fund.
+- Every barangay-level role may write its barangay's records; only COA auditors are read-only. Who certifies what (collector vs Treasurer vs Accountant) is enforced for posting (`post_rcd` needs LGU staff) and otherwise by who holds the login. Tighter per-role rules are a later step.
+- Collections received as deputized collector of the city/municipality (remitted to the C/M Treasurer, 4.2.2) are not modelled yet.
 
 ## Conventions
 

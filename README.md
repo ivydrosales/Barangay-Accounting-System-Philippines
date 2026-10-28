@@ -8,7 +8,7 @@ One city or municipality is a tenant. Its barangays sit under it. Barangay offic
 
 **Phase 0 (foundation) is built.** The database holds the master data (LGUs, barangays, officials, funds, bank accounts, suppliers, employees, accountable forms), the 280-account COA chart, the journal (JCT and GJ) with periods and document numbering, an append-only audit trail and row-level security. The app signs users in and shows them what they can see. Fifty-three database rule tests pass.
 
-Phase 1 (Official Receipts, Report of Collections and Deposits, Cashbook, Disbursement Vouchers) is next. The full plan is in `docs/PROPOSAL.md` section 10.
+**Phase 1, collections, is built:** Official Receipts issued in serial order from booklets, the collector's Report of Collections and Remittances (Annex 9.1), the Treasurer's Report of Collections and Deposits (Annex 9) with its accounting entries posted to the Journal of Cash Transactions, and the Cashbook (Annex 8), each printable in the manual's layout. Disbursement Vouchers come next. The full plan is in `docs/PROPOSAL.md` section 10.
 
 ## What is where
 
@@ -23,7 +23,7 @@ Phase 1 (Official Receipts, Report of Collections and Deposits, Cashbook, Disbur
 | `supabase/seed.sql` | The chart of accounts as SQL (generated; run `npm run seed:gen` after editing the CSV) |
 | `supabase/tests/` | Rule tests: balanced entries, immutable postings, closed periods, numbering, access |
 | `supabase/bootstrap/first_lgu.sql` | One-time script that creates the first LGU, its barangays and your admin login |
-| `src/app/` | The Next.js app (login, home) |
+| `src/app/` | The Next.js app: login, home, Official Receipts, RCR, RCD, Cashbook |
 | `src/lib/supabase/` | Supabase clients for server, browser and middleware |
 | `scripts/` | `db-test.sh` (build a throwaway database and run the tests), `gen-seed.mjs` |
 | `.github/workflows/` | CI (lint, build, database tests) and the migration deploy to Supabase |
