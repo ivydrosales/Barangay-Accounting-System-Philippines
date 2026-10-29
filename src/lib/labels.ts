@@ -54,3 +54,29 @@ export const ROLE_LABELS: Record<string, string> = {
   lgu_admin: "LGU Administrator",
   coa_auditor: "COA Auditor (read-only)",
 };
+
+// Positions as the manual names them; the DV boxes, RCD, RAAF and
+// Transmittal Letter look officials up by these exact names.
+export const OFFICIAL_POSITIONS = [
+  "Punong Barangay",
+  "Barangay Treasurer",
+  "Chairman, Committee on Appropriations",
+  "Barangay Secretary",
+  "SK Chairperson",
+  "Deputized Barangay Collector",
+  "Property Custodian",
+  "Petty Cash Custodian",
+  "Barangay Kagawad",
+];
+
+export const LGU_ROLES = ["lgu_admin", "lgu_accountant", "lgu_bookkeeper", "coa_auditor"];
+export const BARANGAY_ROLES = [
+  "punong_barangay",
+  "barangay_treasurer",
+  "cca",
+  "barangay_secretary",
+  "sk_chairperson",
+  "deputized_collector",
+  "property_custodian",
+  "petty_cash_custodian",
+];

@@ -1,6 +1,6 @@
 # Setting up Supabase, Vercel and your first login
 
-Four short tasks, all in web dashboards. Nothing here needs code. Keep the values you copy in a password manager; do not paste them into chat.
+Five short tasks, all in web dashboards or the app. Nothing here needs code. Keep the values you copy in a password manager; do not paste them into chat.
 
 ## 1. Create the Supabase project (database and logins)
 
@@ -38,7 +38,14 @@ If you would rather not use secrets, you can instead open **SQL Editor** in Supa
 2. Open **SQL Editor → New query**, paste the contents of `supabase/bootstrap/first_lgu.sql`, change the email, LGU name and barangay names at the top, and click **Run**. This creates the LGU, its barangays (each with the five standard funds) and gives your login the LGU administrator and Accountant roles.
 3. Open the Vercel URL and sign in. The home page lists your roles, the barangays you can see with their funds, and the 280 loaded accounts.
 
-Adding other people later works the same way: create their login under Authentication → Users, then insert a row in `user_membership` with their role and barangay. A screen for this is planned; until then it is a one-line SQL insert that Claude Code can write for you.
+## 5. Get the pilot barangay ready
+
+All of this is done in the app, signed in as the LGU administrator. Pick the barangay in the top bar first.
+
+1. **Setup → Officials:** add the Punong Barangay, the Barangay Treasurer and the Chairman of the Committee on Appropriations (and any Deputized Barangay Collectors). Their names print in the signature boxes.
+2. **Setup → Depository bank account:** record the barangay's current account.
+3. **Accountable forms:** record each OR booklet and checkbook on hand, starting at the next unused number.
+4. **People and access:** for each officer who will sign in, first create their login in Supabase (**Authentication → Users → Add user → Create new user**, tick **Auto Confirm User**), then enter the same email in the app with their role and barangay. Give them their password privately.
 
 ## Working locally with Claude Code (optional)
 
