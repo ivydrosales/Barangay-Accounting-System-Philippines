@@ -46,6 +46,15 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ o
       </section>
 
       <section className="card">
+        <h2>Setup</h2>
+        <p>
+          Before a barangay starts, record its officials and depository bank account under <Link href="/setup">Setup</Link>, its
+          OR and check booklets under <Link href="/forms">Accountable forms</Link>, and give each officer a login under{" "}
+          <Link href="/setup/people">People and access</Link>.
+        </p>
+      </section>
+
+      <section className="card">
         <h2>Collections</h2>
         <p>
           Issue <Link href="/collections">Official Receipts</Link>, turn collectors&apos; receipts over on an{" "}
